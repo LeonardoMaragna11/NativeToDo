@@ -30,7 +30,7 @@ export default function App() {
             fontWeight: 'bold',
           },
           headerTitle: () => (<LogoTitle/>),
-          headerRight: ()=> (<Text>Login</Text>)
+          // headerRight: ()=> (<Text>Login</Text>)
         }} name="Logar" component={Login} />
         <Stack.Screen options={{
           title: 'Cadastrar',
@@ -42,7 +42,7 @@ export default function App() {
             fontWeight: 'bold',
           },
           headerTitle: () => (<LogoTitle/>),
-          headerRight: ()=> (<Text>Login</Text>)
+          // headerRight: ()=> (<Text>Login</Text>)
         }} name="Cadastrar" component={Cadastro} />
 
          <Stack.Screen options={{
@@ -55,7 +55,7 @@ export default function App() {
             fontWeight: 'bold',
           },
           headerTitle: () => (<LogoTitle/>),
-          headerRight: ()=> (<Text>Login</Text>)
+          // headerRight: ()=> (<Text>Login</Text>)
         }} name="Home" component={Home} />
       </Stack.Navigator>
     </NavigationContainer>

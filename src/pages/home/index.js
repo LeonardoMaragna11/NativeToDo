@@ -25,14 +25,32 @@ export default function Home({ route, navigation }){
   }, [])
     return(
         <View style={styles.container}>
+          <ListarTarefas tarefas={listaTarefa}/>
             <Button 
-                title='Sair' 
+                title='Sair'
                 onPress={()=>{
                 navigation.navigate('Logar')}}
             />
         </View>
     )
 }
+
+function ListarTarefas(props){
+  return(
+    <View>
+      {props.tarefas.map((tarefas)=>{
+        return(
+          <View key={tarefas.id_ta}>
+            <Text>{tarefas.titulo_ta}</Text>
+            <Text>{tarefas.descricao_ta}</Text>
+            {console.log(tarefas)}
+          </View>
+        )
+      })}
+    </View>
+  )
+}
+
 const styles = StyleSheet.create({
     container: {
       flex: 1,
