@@ -1,7 +1,9 @@
 # OSX
 #
 .DS_Store
-
+.vscode
+androoid
+ios
 # Xcode
 #
 build/
