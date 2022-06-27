@@ -8,8 +8,21 @@ import {
         TouchableOpacity      
 } from 'react-native';
 
+import { createClient } from '@supabase/supabase-js'
 export default function Home({ route, navigation }){
-    
+  const supabaseUrl = 'https://nsxsxomxuherhlnezgzy.supabase.co'
+  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5zeHN4b214dWhlcmhsbmV6Z3p5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTYyOTI3NzksImV4cCI6MTk3MTg2ODc3OX0.XiUP6XR2czW53xcgApHSjBLWKaVNXe6RU0kpagB_1Eg'
+  const supabase = createClient(supabaseUrl, supabaseKey)
+  const [listaTarefa, setTarefa] = React.useState([])
+  React.useEffect(()=>{
+    supabase
+      .from('tb_tarefas')
+      .select('*')
+      .then(({ data })=>{
+        setTarefa(data)
+        console.log(data);
+      })
+  }, [])
     return(
         <View style={styles.container}>
             <Button 

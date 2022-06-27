@@ -2,8 +2,8 @@
 #
 .DS_Store
 .vscode
-androoid
-ios
+androoid/
+ios/
 # Xcode
 #
 build/

@@ -1,8 +1,18 @@
 {
     "tarefas":{
         "1":{
-            "id":"1",
-            "id_us":""
+            "id_tr":"1",
+            "id_us":"",
+            "titulo_tr":"Tarefa PW",
+            "descricao_tr":"tarefa de Pw, fazer crud PDO",
+            "data_tr":"10/02/2023"
+        },
+        "2":{
+            "id_tr":"2",
+            "id_us":"",
+            "titulo_tr":"Tarefa PW2",
+            "descricao_tr":"tarefa de Pw, fazer crud PDO2",
+            "data_tr":"11/02/2023"
         }
     }
 }

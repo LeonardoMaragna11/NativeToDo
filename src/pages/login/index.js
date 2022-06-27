@@ -15,7 +15,7 @@ export default function Login({ navigation }) {
 
   const [email, setEmail] = React.useState();
   const [password, setPassword] = React.useState();
-
+  
   async function login(){
     await signInWithEmailAndPassword(auth, email, password)
       .then(value=>{
