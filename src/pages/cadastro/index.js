@@ -42,9 +42,11 @@ export default function Cadastro() {
         onPress={()=> cadastrar()}
         color={'#0a583e'}
       />
-      <Text>Já é usuario? ja para<TouchableOpacity onPress={()=>{
+      <TouchableOpacity onPress={()=>{
         navigation.navigate('Logar')
-      }}>login</TouchableOpacity> </Text>
+      }}>
+        <Text>Já é usuario? Logar</Text>
+      </TouchableOpacity>
     </View>
   );
 }

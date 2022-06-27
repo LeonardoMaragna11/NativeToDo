@@ -41,6 +41,8 @@ export default function App() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
+          headerTitle: () => (<LogoTitle/>),
+          headerRight: ()=> (<Text>Login</Text>)
         }} name="Cadastrar" component={Cadastro} />
 
          <Stack.Screen options={{
@@ -52,6 +54,8 @@ export default function App() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
+          headerTitle: () => (<LogoTitle/>),
+          headerRight: ()=> (<Text>Login</Text>)
         }} name="Home" component={Home} />
       </Stack.Navigator>
     </NavigationContainer>

@@ -55,9 +55,11 @@ export default function Login({ navigation }) {
         onPress={()=> login()}
         color={'#0a583e'}
       />
-      <Text>Não é usuario? <TouchableOpacity onPress={()=>{
+      <TouchableOpacity onPress={()=>{
         navigation.navigate('Cadastrar')
-      }}></TouchableOpacity> </Text>
+      }}>
+        <Text>Não é usuario? Cadastrar</Text>
+      </TouchableOpacity>
     </View>
   );
 }
