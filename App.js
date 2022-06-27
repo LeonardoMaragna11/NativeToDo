@@ -4,9 +4,10 @@ import Cadastro from './src/pages/cadastro/index';
 import Login from './src/pages/login/index';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createDrawerNavigator  } from '@react-navigation/drawer'
 import Home from './src/pages/home';
 
-const Stack = createNativeStackNavigator();
+const Stack = createDrawerNavigator();
 function LogoTitle() {
   return (
     <Image

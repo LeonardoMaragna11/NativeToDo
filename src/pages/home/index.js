@@ -14,6 +14,8 @@ export default function Home({ route, navigation }){
   const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5zeHN4b214dWhlcmhsbmV6Z3p5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTYyOTI3NzksImV4cCI6MTk3MTg2ODc3OX0.XiUP6XR2czW53xcgApHSjBLWKaVNXe6RU0kpagB_1Eg'
   const supabase = createClient(supabaseUrl, supabaseKey)
   const [listaTarefa, setTarefa] = React.useState([])
+  const {id, email} = route.params
+
   React.useEffect(()=>{
     supabase
       .from('tb_tarefas')
@@ -25,6 +27,7 @@ export default function Home({ route, navigation }){
   }, [])
     return(
         <View style={styles.container}>
+          <Text>{id}</Text>
           <ListarTarefas tarefas={listaTarefa}/>
             <Button 
                 title='Sair'
@@ -40,13 +43,15 @@ function ListarTarefas(props){
     <View>
       {props.tarefas.map((tarefas)=>{
         return(
-          <View key={tarefas.id_ta}>
-            <Text>{tarefas.titulo_ta}</Text>
-            <Text>{tarefas.descricao_ta}</Text>
+          <View key={tarefas.id_tr}>
+            <Text>{tarefas.titulo_tr}</Text>
+            <Text>{tarefas.descricao_tr}</Text>
             {console.log(tarefas)}
+            <Text>{tarefas.data_tr}</Text>
           </View>
         )
       })}
+    
     </View>
   )
 }
