@@ -1,1 +1,9 @@
 lPmljVL8aja8xBfV
+CREATE TABLE tb_usuarios(
+	id_us INT AUTO_INCREMENT,
+    nome_us VARCHAR(30),
+    sobrenome_us VARCHAR(30),
+    username_us VARCHAR(30),
+    PRIMARY KEY(id_us)
+)
+INSERT INTO `tb_usuarios` VALUES(NULL, 'Leo', 'Maragna', 'LeoMaragna11')
