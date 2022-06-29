@@ -8,6 +8,7 @@ import Cadastro from './src/pages/Cadastro';
 import Login from './src/pages/Login';
 import Home from './src/pages/Home';
 import Tarefas from './src/pages/Tarefa';
+import AlterarTarefa from './src/pages/AlterarTarefa'
 
 const Stack = createNativeStackNavigator();
 function LogoTitle() {
@@ -28,11 +29,8 @@ export default function App() {
           title: 'Logar',
           headerStyle: {
             backgroundColor: '#0a583e',
-            color: 'aliceblue',
-            fontWeight: 'bold',
-            shadowOpacity:0,
-            elevation: 0,
           },
+          headerTintColor: '#F0F8FF',
           headerTitle: () => (<Text style={styles.headerTitle}>Logar</Text>),
           headerRight: ()=> (<LogoTitle/>),
           headerLeft: ()=>{false},
@@ -44,10 +42,7 @@ export default function App() {
           headerStyle: {
             backgroundColor: '#0a583e',
           },
-          headerTintColor: 'aliceblue',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
+          headerTintColor: '#F0F8FF',
           headerTitle: () => (<Text style={styles.headerTitle}>Cadastrar</Text>),
           headerRight: ()=> (<LogoTitle/>),
           headerLeft: ()=>{false},
@@ -59,10 +54,8 @@ export default function App() {
           headerStyle: {
             backgroundColor: '#0a583e',
           },
-          headerTintColor: 'aliceblue',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
+          headerTintColor: '#F0F8FF',
+
           headerTitle: () => (<Text style={styles.headerTitle}>Home</Text>),
           headerRight: ()=> (<LogoTitle/>),
           headerTitleAlign: 'center'
@@ -73,14 +66,23 @@ export default function App() {
           headerStyle: {
             backgroundColor: '#0a583e',
           },
-          headerTintColor: 'aliceblue',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
+          headerTintColor: '#F0F8FF',
           headerTitle: () => (<Text style={styles.headerTitle}>Tarefas</Text>),
           headerRight: ()=> (<LogoTitle/>),
           headerTitleAlign: 'center'
         }} name="Tarefas" component={Tarefas} />
+
+        <Stack.Screen options={{
+          title: 'AlterarTarefa',
+          headerStyle: {
+            backgroundColor: '#0a583e',
+          },
+          headerTintColor: '#F0F8FF',
+          headerTitle: () => (<Text style={styles.headerTitle}>Alterar Tarefa</Text>),
+          headerRight: ()=> (<LogoTitle/>),
+          headerTitleAlign: 'center'
+        }} name="AlterarTarefa" component={AlterarTarefa} />
+        
 
       </Stack.Navigator>
     </NavigationContainer>

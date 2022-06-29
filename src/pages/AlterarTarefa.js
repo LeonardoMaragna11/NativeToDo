@@ -10,12 +10,26 @@ import {
         Image
 } from 'react-native';
 
-export default function Tarefas({navigation, route}){
+async function _alterar(supabase, id, titulo_tr, descricao_tr){
+  await supabase
+  .from('tb_tarfas')
+  .update({ titulo_tr: titulo_tr, descricao_tr: descricao_tr, })
+  .eq('id_tr', id)
+  .then(console.log('deu certo'))
+  .catch(console.log('erro'))
+}
+
+export default function AlterarTarefa({navigation, route}){
     const supabaseUrl = 'https://nsxsxomxuherhlnezgzy.supabase.co'
     const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5zeHN4b214dWhlcmhsbmV6Z3p5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTYyOTI3NzksImV4cCI6MTk3MTg2ODc3OX0.XiUP6XR2czW53xcgApHSjBLWKaVNXe6RU0kpagB_1Eg'
     const supabase = createClient(supabaseUrl, supabaseKey)
-    const [listaTarefa, setTarefa] = React.useState([])
+
+    const [listaTarefa, setTarefa] = React.useState([]);
     const [us_tr, setUs_tr] = React.useState();
+    const [nvTitulo_tr, setNvTitulo_tr] = React.useState();
+    const [nvDescricao_tr, setNvDescricao_tr] =  React.useState();
+
+    const id = route.params.id
 
     React.useEffect(()=>{
         supabase
@@ -27,29 +41,45 @@ export default function Tarefas({navigation, route}){
           })
       }, [])
 
-    const id = route.params.id
 
     return(
         <View style={styles.container}>
+          
           {listaTarefa.map((tarefa)=>{
-            return(
+
+
+                return(
               <View key={tarefa.id_tr} style={styles.container}>
-                <Text style={styles.titulo}>{tarefa.titulo_tr}</Text>
+                <TextInput 
+                      style={styles.inputTitulo} 
+                      value={nvTitulo_tr}
+                      onChange={(txt)=>{
+                        setNvTitulo_tr(txt)
+                      }}
+                />
                 <Text style={styles.dataTxt}>{tarefa.data_tr}</Text>
                 <View style={styles.cxDescricao}>
-                  <Text style={styles.descricaoTxt}>{`\t${tarefa.descricao_tr}`}</Text>
+                  <TextInput 
+                       
+                      multiline
+                      numberOfLines={20}
+                      style={styles.descricaoTxt}
+                      value={`\t${nvDescricao_tr}`}
+                      onChange={(txt)=>{
+                        setNvDescricao_tr(txt)
+                      }}
+                  />
                 </View>
                 <View style={{width:'100%', alignItems:'end', marginTop:'20px'}}>
-                  <TouchableOpacity style={styles.btnEdiSav} onPress={()=>{
-                    navigation.navigate('AlterarTarefa',{id: id})
+                  <TouchableOpacity style={styles.btnEdiSav} onPress={(id, )=>{
+                    _alterar(supabase, id, nvTitulo_tr, nvDescricao_tr)
                   }}>
-                    <Image style={styles.imgBtn} source={require('../../assets/lapis.png')}/>
+                    <Image style={styles.imgBtn} source={require('../../assets/disket.png')}/>
                   </TouchableOpacity>
                 </View>
               </View>
             )
           })}
-
         </View>
     )
 }
@@ -110,5 +140,11 @@ const styles = StyleSheet.create({
     imgBtn:{
       width: '80%',
       height: '80%',
+    },
+    inputTitulo:{
+      color: 'aliceblue',
+      fontSize:'24pt',
+      textAlign:'left',
+      width: '80%',
     }
   });
