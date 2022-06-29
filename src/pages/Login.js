@@ -18,12 +18,12 @@ export default function Login({ navigation }) {
   const [password, setPassword] = React.useState();
   
   async function login(){
+    
     await signInWithEmailAndPassword(auth, email, password)
       .then(value=>{
         navigation.navigate('Home',{
           id: value.user.uid,
           email: value.user.email,
-          
         })
       }).catch(erro => console.log(erro))
   }
