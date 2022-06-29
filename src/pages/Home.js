@@ -101,7 +101,8 @@ const styles = StyleSheet.create({
       justifyContent:'space-between',
       flexDirection:'row', 
       padding: '10px',
-      borderRadius:'10px'
+      borderRadius:'10px',
+      marginBottom:'10px',
     },
     text:{
       color: 'aliceblue',
